@@ -1,0 +1,556 @@
+/* Variables CSS pour les couleurs */
+:root {
+    --primary-blue: #004071; /* Bleu foncé principal */
+    --accent-green: #80b343; /* Vert d'accent */
+    --light-bg: #f8f9fa;    /* Arrière-plan très clair */
+    --white: #fff;          /* Blanc */
+    --text-dark: #343a40;   /* Texte foncé */
+    --text-medium: #6c757d; /* Texte gris moyen */
+    --border-light: #e0e0e0; /* Bordure fine */
+}
+
+/* Styles de base et typographie */
+body {
+    font-family: 'Open Sans', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--light-bg);
+    color: var(--text-dark);
+    line-height: 1.6;
+    scroll-behavior: smooth; /* Défilement doux vers les ancres */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    font-weight: 600;
+    color: var(--primary-blue);
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-blue);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent-green);
+}
+
+.button {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: 600;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button--primary {
+    background-color: var(--primary-blue);
+    color: var(--white);
+}
+
+.button--primary:hover {
+    background-color: #002c4b; /* Bleu plus foncé */
+    transform: translateY(-2px);
+}
+
+.button--secondary {
+    background-color: var(--accent-green);
+    color: var(--white);
+}
+
+.button--secondary:hover {
+    background-color: #6a9b34; /* Vert plus foncé */
+    transform: translateY(-2px);
+}
+
+.section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.section:nth-child(even) { /* Pour alterner les couleurs de fond */
+    background-color: var(--light-bg);
+}
+
+.section:nth-child(odd) {
+    background-color: var(--white);
+}
+
+.section__title {
+    font-size: 2.5em;
+    margin-bottom: 50px;
+    position: relative;
+    display: inline-block;
+}
+
+.section__title::after { /* Ligne décorative sous le titre */
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent-green);
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -15px;
+}
+
+/* --- Header --- */
+.header {
+    background-color: var(--white);
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border-light);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .logo img {
+    height: 60px; /* Taille du logo */
+    vertical-align: middle;
+}
+
+/* Navigation principale */
+.nav .nav-toggle {
+    display: none; /* Cache la checkbox */
+}
+
+.nav .nav-toggle-label {
+    display: none; /* Cache le label par défaut (visible sur mobile) */
+    font-size: 1.8em;
+    cursor: pointer;
+    color: var(--primary-blue);
+}
+
+.nav__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav__item {
+    margin-left: 30px;
+}
+
+.nav__item a {
+    font-weight: 600;
+    padding: 5px 0;
+    position: relative;
+}
+
+.nav__item a::after { /* Effet de soulignement au survol */
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--accent-green);
+    transition: width 0.3s ease;
+}
+
+.nav__item a:hover::after {
+    width: 100%;
+}
+
+/* --- Hero Section --- */
+.hero {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    padding: 80px 0;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 500px;
+    background-image: url('/images/hero-montreal.jpg'); /* Image de fond */
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay; /* Mélange l'image avec la couleur de fond */
+    position: relative;
+}
+
+.hero::before { /* Calque semi-transparent sur l'image pour meilleure lisibilité */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 64, 113, 0.7); /* Opacité du bleu */
+}
+
+.hero .container {
+    position: relative; /* Pour que le contenu soit au-dessus du calque */
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero__title {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--white); /* Titre en blanc */
+}
+
+.hero__subtitle {
+    font-size: 1.4em;
+    max-width: 900px;
+    margin-bottom: 40px;
+    color: var(--white);
+}
+
+.hero__image {
+    display: none; /* L'image est maintenant en fond */
+}
+
+/* --- About Section --- */
+.about {
+    background-color: var(--white);
+}
+
+.about__text {
+    max-width: 900px;
+    margin: 20px auto;
+    font-size: 1.1em;
+    color: var(--text-medium);
+}
+
+/* --- Services Section (Grid de Cartes) --- */
+.services {
+    background-color: var(--light-bg);
+}
+
+.services__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.service-card {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    text-align: center; /* Centrer le contenu des cartes */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 5px solid var(--accent-green); /* Ligne de couleur sur le haut */
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.service-card__icon {
+    height: 60px; /* Taille des icônes de service */
+    width: 60px;
+    margin-bottom: 20px;
+    display: block; /* Pour centrer l'icône */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.service-card__title {
+    font-size: 1.5em;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    color: var(--primary-blue);
+}
+
+.service-card__description {
+    font-size: 0.95em;
+    color: var(--text-medium);
+}
+
+/* --- CTA Section (bas de page) --- */
+.cta {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.cta__title {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: var(--white);
+}
+
+.cta__text {
+    font-size: 1.2em;
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    color: var(--white);
+}
+
+/* --- Footer --- */
+.footer {
+    background-color: var(--text-dark); /* Fond foncé pour le footer */
+    color: var(--white);
+    padding: 50px 0 20px 0;
+    font-size: 0.9em;
+}
+
+.footer__content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+    text-align: left; /* Aligner le texte des colonnes à gauche */
+}
+
+.footer__col h3 {
+    color: var(--white);
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 10px;
+}
+
+.footer__col p {
+    margin-bottom: 10px;
+    color: rgba(255,255,255,0.8);
+}
+
+.footer__contact i {
+    margin-right: 8px;
+    color: var(--accent-green);
+}
+
+.footer__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer__list li {
+    margin-bottom: 8px;
+}
+
+.footer__list a {
+    color: rgba(255,255,255,0.7);
+    transition: color 0.3s ease;
+}
+
+.footer__list a:hover {
+    color: var(--white);
+}
+
+.footer__social {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 15px;
+}
+
+.footer__social-item a {
+    font-size: 1.5em;
+    color: rgba(255,255,255,0.7);
+    transition: color 0.3s ease;
+}
+
+.footer__social-item a:hover {
+    color: var(--accent-green);
+}
+
+.footer__bottom {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.6);
+}
+
+.footer__legal a {
+    color: rgba(255,255,255,0.6);
+    margin: 0 10px;
+}
+
+.footer__legal a:hover {
+    color: var(--white);
+}
+
+/* --- Responsive Design (Media Queries) --- */
+
+/* Mobiles (moins de 768px) */
+@media (max-width: 767px) {
+    .header .container {
+        flex-direction: column;
+        align-items: flex-start; /* Aligner le logo à gauche */
+    }
+
+    .header .logo {
+        margin-bottom: 15px;
+        margin-left: 0; /* Supprimer la marge de gauche */
+    }
+
+    /* Menu Hamburger */
+    .nav .nav-toggle-label {
+        display: block; /* Afficher l'icône hamburger */
+        position: absolute;
+        right: 20px;
+        top: 25px;
+        z-index: 1001; /* S'assurer qu'il est au-dessus du menu */
+    }
+
+    .nav__list {
+        display: none; /* Cacher la liste par défaut */
+        flex-direction: column;
+        width: 100%;
+        background-color: var(--white);
+        position: absolute;
+        top: 90px; /* Sous le header */
+        left: 0;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        padding: 20px 0;
+        border-top: 1px solid var(--border-light);
+    }
+
+    .nav-toggle:checked + .nav-toggle-label + .nav__list {
+        display: flex; /* Afficher la liste quand la checkbox est cochée */
+    }
+
+    .nav__item {
+        margin: 0;
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid var(--border-light);
+    }
+
+    .nav__item:last-child {
+        border-bottom: none;
+    }
+
+    .nav__item a {
+        display: block;
+        padding: 15px 0;
+        color: var(--text-dark);
+    }
+
+    .nav__item a::after { /* Cacher le soulignement sur mobile */
+        display: none;
+    }
+
+    .hero__title {
+        font-size: 2.2em;
+    }
+
+    .hero__subtitle {
+        font-size: 1em;
+    }
+
+    .section {
+        padding: 40px 0;
+    }
+
+    .section__title {
+        font-size: 1.8em;
+        margin-bottom: 30px;
+    }
+
+    .about__text {
+        font-size: 1em;
+    }
+
+    .services__grid {
+        grid-template-columns: 1fr; /* Une colonne sur mobile */
+    }
+
+    .service-card {
+        padding: 20px;
+    }
+
+    .service-card__icon {
+        height: 50px;
+        width: 50px;
+    }
+
+    .service-card__title {
+        font-size: 1.3em;
+    }
+
+    .cta__title {
+        font-size: 2em;
+    }
+
+    .cta__text {
+        font-size: 1em;
+    }
+
+    .footer__content {
+        grid-template-columns: 1fr; /* Une colonne dans le footer sur mobile */
+        text-align: center;
+    }
+
+    .footer__col h3 {
+        margin-top: 20px;
+    }
+
+    .footer__list, .footer__social {
+        justify-content: center; /* Centrer les éléments */
+    }
+}
+
+/* Tablettes (entre 768px et 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .header .logo img {
+        height: 55px;
+    }
+
+    .nav__item {
+        margin-left: 20px;
+    }
+
+    .hero__title {
+        font-size: 2.8em;
+    }
+
+    .hero__subtitle {
+        font-size: 1.2em;
+    }
+
+    .section__title {
+        font-size: 2.2em;
+    }
+
+    .services__grid {
+        grid-template-columns: repeat(2, 1fr); /* Deux colonnes sur tablette */
+    }
+
+    .footer__content {
+        grid-template-columns: repeat(2, 1fr); /* Deux colonnes dans le footer */
+    }
+}
+
+/* Ordinateurs (1024px et plus) */
+@media (min-width: 1024px) {
+    .hero__title {
+        font-size: 4em;
+    }
+    .hero__subtitle {
+        font-size: 1.6em;
+    }
+    .services__grid {
+        grid-template-columns: repeat(4, 1fr); /* Quatre colonnes sur desktop */
+    }
+}
