@@ -3,431 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Association KIF KIF - Votre soutien pour une nouvelle vie à Québec</title>
+    <title>Association KIF KIF - Bienvenue aux Nouveaux Arrivants à Montréal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* Variables CSS pour les couleurs inspirées de l'ACSM Québec */
-        :root {
-            --primary-blue: #004071; /* Bleu foncé principal */
-            --accent-green: #80b343; /* Vert d'accent */
-            --light-grey-bg: #f8f9fa; /* Arrière-plan très clair */
-            --text-dark: #343a40; /* Texte foncé */
-            --text-light: #6c757d; /* Texte gris clair */
-            --white: #fff;
-            --border-light: #e0e0e0; /* Bordure fine */
-            --header-height: 80px; /* Hauteur du header */
-        }
-
-        /* Styles de base */
-        body {
-            font-family: 'Open Sans', Arial, sans-serif; /* Utilisation de la police Google Font */
-            margin: 0;
-            padding: 0;
-            background-color: var(--light-grey-bg);
-            color: var(--text-dark);
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1200px; /* Largeur maximale pour le contenu principal */
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* --- Header --- */
-        .header {
-            background-color: var(--white);
-            padding: 15px 0;
-            border-bottom: 1px solid var(--border-light);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            position: sticky; /* Rendre le header fixe au défilement */
-            top: 0;
-            z-index: 1000; /* Assurer qu'il est au-dessus des autres éléments */
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .header .logo {
-            font-size: 1.8em;
-            font-weight: 700; /* Plus gras pour le logo */
-            color: var(--primary-blue);
-            text-decoration: none;
-            margin-left: 20px; /* Espace à gauche pour le logo */
-        }
-
-        .header .main-nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex; /* Les liens en ligne */
-        }
-
-        .header .main-nav li {
-            margin-left: 30px; /* Espacement entre les liens */
-        }
-
-        .header .main-nav a {
-            color: var(--text-dark);
-            text-decoration: none;
-            font-weight: 600;
-            padding: 5px 0;
-            transition: color 0.3s ease;
-            position: relative; /* Pour l'effet de soulignement */
-        }
-
-        .header .main-nav a:hover {
-            color: var(--primary-blue);
-        }
-
-        /* Effet de soulignement au survol */
-        .header .main-nav a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: var(--primary-blue);
-            transition: width 0.3s ease;
-        }
-
-        .header .main-nav a:hover::after {
-            width: 100%;
-        }
-
-
-        /* --- Hero Section --- */
-        .hero-section {
-            background-color: var(--primary-blue); /* Fond bleu pour la section hero */
-            color: var(--white);
-            padding: 80px 20px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 400px; /* Hauteur minimale pour la section hero */
-            /* Optionnel : image de fond */
-            /* background-image: url('URL_DE_VOTRE_IMAGE_QUEBEC.jpg'); */
-            /* background-size: cover; */
-            /* background-position: center; */
-            /* background-blend-mode: overlay; */
-        }
-
-        .hero-section h1 {
-            font-size: 3em;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-
-        .hero-section p {
-            font-size: 1.3em;
-            max-width: 800px;
-            margin-bottom: 40px;
-        }
-
-        .hero-section .cta-button {
-            background-color: var(--accent-green);
-            color: var(--white);
-            padding: 15px 35px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1.1em;
-            text-decoration: none;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            display: inline-block;
-        }
-
-        .hero-section .cta-button:hover {
-            background-color: #6a9b34; /* Vert légèrement plus foncé au survol */
-            transform: translateY(-2px);
-        }
-
-        /* --- Sections de Contenu Générales (ex: Services, À Propos) --- */
-        .content-section {
-            padding: 60px 0;
-            background-color: var(--white);
-            text-align: center;
-            border-bottom: 1px solid var(--border-light);
-        }
-
-        .content-section h2 {
-            font-size: 2.5em;
-            color: var(--primary-blue);
-            margin-bottom: 40px;
-            position: relative;
-            display: inline-block; /* Pour centrer le pseudo-élément */
-        }
-
-        .content-section h2::after { /* Petite ligne sous le titre */
-            content: '';
-            position: absolute;
-            width: 60px;
-            height: 3px;
-            background-color: var(--accent-green);
-            left: 50%;
-            transform: translateX(-50%);
-            bottom: -10px;
-        }
-
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adaptatif */
-            gap: 30px;
-            margin-top: 30px;
-        }
-
-        .card-item {
-            background-color: var(--white);
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* Ombre plus douce */
-            text-align: left;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-top: 3px solid var(--accent-green); /* Ligne de couleur sur le haut */
-        }
-
-        .card-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-        }
-
-        .card-item h3 {
-            color: var(--primary-blue);
-            font-size: 1.4em;
-            margin-top: 15px;
-            margin-bottom: 10px;
-        }
-
-        .card-item p {
-            font-size: 0.95em;
-            color: var(--text-light);
-        }
-
-        /* --- Call to Action Section (bas de page avant footer) --- */
-        .cta-bottom-section {
-            background-color: var(--primary-blue);
-            color: var(--white);
-            padding: 60px 20px;
-            text-align: center;
-        }
-        .cta-bottom-section h2 {
-            color: var(--white);
-            font-size: 2.2em;
-            margin-bottom: 20px;
-        }
-        .cta-bottom-section .cta-button {
-             background-color: var(--accent-green);
-        }
-
-        /* --- Footer --- */
-        .footer {
-            background-color: var(--dark-grey);
-            color: var(--white);
-            padding: 40px 0;
-            font-size: 0.9em;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            text-align: left;
-        }
-
-        .footer-column h4 {
-            color: var(--white);
-            font-size: 1.1em;
-            margin-bottom: 15px;
-            border-bottom: 1px solid rgba(255,255,255,0.2);
-            padding-bottom: 5px;
-        }
-
-        .footer-column ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .footer-column ul li {
-            margin-bottom: 8px;
-        }
-
-        .footer-column a {
-            color: rgba(255,255,255,0.7);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-column a:hover {
-            color: var(--white);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
-
-        /* --- Responsive Design (Media Queries) --- */
-
-        /* Mobiles (moins de 768px) - Styles par défaut */
-        @media (max-width: 767px) {
-            .header {
-                flex-direction: column; /* Logo et nav empilés */
-                padding-bottom: 10px;
-            }
-            .header .logo {
-                margin: 0;
-                margin-bottom: 10px;
-            }
-            .header .main-nav {
-                width: 100%; /* La nav prend toute la largeur */
-            }
-            .header .main-nav ul {
-                flex-direction: column; /* Liens empilés */
-                align-items: center;
-            }
-            .header .main-nav li {
-                margin: 5px 0; /* Espacement vertical */
-            }
-            .hero-section h1 {
-                font-size: 2.2em;
-            }
-            .hero-section p {
-                font-size: 1em;
-            }
-            .content-section h2 {
-                font-size: 2em;
-            }
-            .cards-grid {
-                grid-template-columns: 1fr; /* Une colonne sur mobile */
-            }
-            .footer-grid {
-                grid-template-columns: 1fr; /* Une colonne dans le footer sur mobile */
-                text-align: center;
-            }
-        }
-
-        /* Tablettes (entre 768px et 1023px) */
-        @media (min-width: 768px) and (max-width: 1023px) {
-            .cards-grid {
-                grid-template-columns: repeat(2, 1fr); /* Deux colonnes sur tablette */
-            }
-            .footer-grid {
-                grid-template-columns: repeat(2, 1fr); /* Deux colonnes dans le footer */
-            }
-        }
-
-        /* Ordinateurs (1024px et plus) - Déjà géré par les styles principaux et les media queries */
-        @media (min-width: 1024px) {
-            .cards-grid {
-                grid-template-columns: repeat(4, 1fr); /* 4 colonnes sur desktop */
-            }
-        }
-    </style>
 </head>
 <body>
-
     <header class="header">
         <div class="container">
-            <a href="#" class="logo">Association KIF KIF</a>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="#">Accueil</a></li>
-                    <li><a href="#about">À propos</a></li>
-                    <li><a href="#services">Nos services</a></li>
-                    <li><a href="#contact">Contact</a></li>
+            <a href="#" class="logo">
+                <img src="/images/logo-kifkif.png" alt="Logo Association KIF KIF">
+            </a>
+            <nav class="nav">
+                <input type="checkbox" id="nav-toggle" class="nav-toggle">
+                <label for="nav-toggle" class="nav-toggle-label">
+                    <i class="fas fa-bars"></i>
+                </label>
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#">Accueil</a></li>
+                    <li class="nav__item"><a href="#about">À propos</a></li>
+                    <li class="nav__item"><a href="#services">Nos services</a></li>
+                    <li class="nav__item"><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <section class="hero-section">
+    <section class="hero">
         <div class="container">
-            <h1>Bienvenue chez KIF KIF, votre nouveau départ à Québec !</h1>
-            <p>Nous sommes là pour vous accompagner, étape par étape, dans votre intégration et votre épanouissement dans la magnifique ville de Québec.</p>
-            <a href="#services" class="cta-button">Découvrez comment nous aidons</a>
+            <div class="hero__content">
+                <h1 class="hero__title">Bienvenue chez KIF KIF, votre nouveau départ à Montréal !</h1>
+                <p class="hero__subtitle">Nous sommes là pour vous accompagner, étape par étape, dans votre intégration et votre épanouissement dans la magnifique ville de Montréal.</p>
+                <a href="#services" class="button button--primary">Découvrez comment nous aidons</a>
+            </div>
+            <div class="hero__image">
+                <img src="/images/hero-montreal.jpg" alt="Bienvenue à Montréal">
+            </div>
         </div>
     </section>
 
-    <section class="content-section" id="about">
+    <section id="about" class="section about">
         <div class="container">
-            <h2>Notre Mission</h2>
-            <p>L'Association KIF KIF s'engage à offrir un soutien bienveillant et des ressources adaptées aux nouveaux arrivants à Québec. Nous croyons que chaque personne mérite un accompagnement personnalisé pour bâtir une nouvelle vie réussie et épanouissante dans notre communauté.</p>
-            <p>Que ce soit pour les démarches administratives, l'apprentissage du français, la découverte culturelle ou la création de liens sociaux, notre équipe dévouée est à votre écoute.</p>
+            <h2 class="section__title">Notre Mission</h2>
+            <p class="about__text">L'Association KIF KIF s'engage à offrir un soutien bienveillant et des ressources adaptées aux nouveaux arrivants à Montréal. Nous croyons que chaque personne mérite un accompagnement personnalisé pour bâtir une nouvelle vie réussie et épanouissante dans notre communauté.</p>
+            <p class="about__text">Que ce soit pour les démarches administratives, l'apprentissage du français, la découverte culturelle ou la création de liens sociaux, notre équipe dévouée est à votre écoute.</p>
         </div>
     </section>
 
-    <section class="content-section" id="services">
+    <section id="services" class="section services">
         <div class="container">
-            <h2>Nos Services d'Accompagnement</h2>
-            <div class="cards-grid">
-                <div class="card-item">
-                    <h3>Accueil et Orientation</h3>
-                    <p>Informations pratiques sur les démarches d'installation, logement, transports (RTC), et la vie quotidienne à Québec.</p>
+            <h2 class="section__title">Nos Services d'Accompagnement</h2>
+            <div class="services__grid">
+                <div class="service-card">
+                    <img src="/icons/compass.svg" alt="Accueil et Orientation" class="service-card__icon">
+                    <h3 class="service-card__title">Accueil et Orientation</h3>
+                    <p class="service-card__description">Informations pratiques sur les démarches d'installation, logement, transports (STM), et la vie quotidienne à Montréal.</p>
                 </div>
-                <div class="card-item">
-                    <h3>Soutien Linguistique</h3>
-                    <p>Ateliers de conversation en français et orientation vers les cours de francisation en ville de Québec.</p>
+                <div class="service-card">
+                    <img src="/icons/dialogue.svg" alt="Soutien Linguistique" class="service-card__icon">
+                    <h3 class="service-card__title">Soutien Linguistique</h3>
+                    <p class="service-card__description">Ateliers de conversation en français et orientation vers les cours de francisation à Montréal.</p>
                 </div>
-                <div class="card-item">
-                    <h3>Intégration Sociale & Culturelle</h3>
-                    <p>Activités conviviales, événements interculturels et mise en réseau pour découvrir Québec et tisser des liens.</p>
+                <div class="service-card">
+                    <img src="/icons/culture.svg" alt="Intégration Sociale & Culturelle" class="service-card__icon">
+                    <h3 class="service-card__title">Intégration Sociale & Culturelle</h3>
+                    <p class="service-card__description">Activités conviviales, événements interculturels et mise en réseau pour découvrir Montréal et tisser des liens.</p>
                 </div>
-                <div class="card-item">
-                    <h3>Aide aux Démarches</h3>
-                    <p>Accompagnement pour comprendre les systèmes de santé, d'éducation, de recherche d'emploi spécifiques à la Capitale-Nationale.</p>
+                <div class="service-card">
+                    <img src="/icons/document.svg" alt="Aide aux Démarches" class="service-card__icon">
+                    <h3 class="service-card__title">Aide aux Démarches</h3>
+                    <p class="service-card__description">Accompagnement pour comprendre les systèmes de santé, d'éducation, de recherche d'emploi spécifiques au Québec métropolitain.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="cta-bottom-section" id="contact">
+    <section class="cta">
         <div class="container">
-            <h2>Prêts à faire le premier pas ?</h2>
-            <p>N'hésitez pas à nous contacter pour toute question ou pour démarrer votre parcours avec l'Association KIF KIF.</p>
-            <a href="mailto:info@associationkifkif.ca" class="cta-button">Contactez-nous</a>
+            <h2 class="cta__title">Prêts à faire le premier pas ?</h2>
+            <p class="cta__text">N'hésitez pas à nous contacter pour toute question ou pour démarrer votre parcours avec l'Association KIF KIF.</p>
+            <a href="mailto:info@associationkifkif.ca" class="button button--secondary">Contactez-nous</a>
         </div>
     </section>
 
     <footer class="footer">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-column">
-                    <h4>Association KIF KIF</h4>
-                    <p>Votre partenaire pour une intégration réussie à Québec.</p>
-                    <p>Québec, Canada</p>
+            <div class="footer__content">
+                <div class="footer__col">
+                    <h3 class="footer__title">Association KIF KIF</h3>
+                    <p class="footer__text">Votre partenaire pour une intégration réussie à Montréal.</p>
+                    <p class="footer__contact"><i class="fas fa-envelope"></i> info@associationkifkif.ca</p>
+                    <p class="footer__contact"><i class="fas fa-phone"></i> [Votre numéro de téléphone]</p>
                 </div>
-                <div class="footer-column">
-                    <h4>Liens Utiles</h4>
-                    <ul>
-                        <li><a href="#">Accueil</a></li>
-                        <li><a href="#about">À propos</a></li>
-                        <li><a href="#services">Nos services</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                <div class="footer__col">
+                    <h3 class="footer__title">Navigation</h3>
+                    <ul class="footer__list">
+                        <li class="footer__item"><a href="#">Accueil</a></li>
+                        <li class="footer__item"><a href="#about">À propos</a></li>
+                        <li class="footer__item"><a href="#services">Nos services</a></li>
+                        <li class="footer__item"><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
-                <div class="footer-column">
-                    <h4>Contact</h4>
-                    <ul>
-                        <li>Email: <a href="mailto:info@associationkifkif.ca">info@associationkifkif.ca</a></li>
-                        <li>Téléphone: [Votre numéro de téléphone]</li>
-                        </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Suivez-nous</h4>
-                    <p>Facebook | Instagram | LinkedIn</p>
+                <div class="footer__col">
+                    <h3 class="footer__title">Suivez-nous</h3>
+                    <ul class="footer__social">
+                        <li class="footer__social-item"><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                        <li class="footer__social-item"><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                        <li class="footer__social-item"><a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="footer-bottom">
+            <div class="footer__bottom">
                 <p>&copy; 2025 Association KIF KIF. Tous droits réservés.</p>
-                <p><a href="#" style="color: rgba(255,255,255,0.7);">Politique de confidentialité</a> | <a href="#" style="color: rgba(255,255,255,0.7);">Conditions d'utilisation</a></p>
+                <p class="footer__legal"><a href="#">Politique de confidentialité</a> | <a href="#">Conditions d'utilisation</a></p>
             </div>
         </div>
     </footer>
-
 </body>
 </html>
