@@ -5,58 +5,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Association KIF KIF - Bienvenue aux Nouveaux Arrivants à Québec</title>
     <style>
+        :root {
+            --primary-blue: #007bff;
+            --green-cta: #28a745;
+            --light-grey: #f8f9fa;
+            --medium-grey: #6c757d;
+            --dark-grey: #343a40;
+            --white: #fff;
+            --border-color: #dee2e6;
+            --header-bg: #e9ecef;
+        }
+
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f8f9fa; /* Gris très clair */
-            color: #343a40; /* Gris foncé */
+            background-color: var(--light-grey);
+            color: var(--dark-grey);
             line-height: 1.6;
         }
 
+        .container {
+            max-width: 1200px; /* Augmenter la largeur maximale pour les grands écrans */
+            margin: 0 auto;
+            padding: 0 15px; /* Padding latéral pour les petits écrans */
+        }
+
         .header {
-            background-color: #e9ecef; /* Gris clair pour l'en-tête */
+            background-color: var(--header-bg);
             padding: 20px 0;
             text-align: center;
-            border-bottom: 1px solid #dee2e6;
+            border-bottom: 1px solid var(--border-color);
         }
 
         .logo {
-            font-size: 2.5em;
+            font-size: 2.2em; /* Légèrement réduit pour meilleure adaptabilité */
             font-weight: bold;
-            color: #007bff; /* Bleu principal */
+            color: var(--primary-blue);
+            margin-bottom: 5px;
         }
 
         .tagline {
-            color: #6c757d; /* Gris moyen */
-            font-size: 1.1em;
+            color: var(--medium-grey);
+            font-size: 1em; /* Légèrement réduit */
         }
 
         .hero {
-            background-color: #fff;
+            background-color: var(--white);
             padding: 40px 20px;
             text-align: center;
+            display: flex; /* Utilisation de Flexbox pour le contenu */
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         .hero-image {
             max-width: 100%;
             height: auto;
             border-radius: 8px;
-            margin-bottom: 20px;
+            margin-bottom: 25px; /* Espace plus grand */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15); /* Ombre plus prononcée */
         }
 
         .hero h2 {
-            color: #007bff;
+            color: var(--primary-blue);
             margin-bottom: 15px;
+            font-size: 2em; /* Taille de police plus grande */
         }
 
         .hero p {
-            font-size: 1.2em;
+            font-size: 1.1em; /* Ajustement de la taille de police */
             margin-bottom: 30px;
+            max-width: 700px; /* Limiter la largeur du texte pour la lisibilité */
         }
 
         .cta-button {
-            background-color: #28a745; /* Vert accueillant */
+            background-color: var(--green-cta);
             color: white;
             padding: 15px 30px;
             border: none;
@@ -64,62 +89,120 @@
             cursor: pointer;
             text-decoration: none;
             font-size: 1.1em;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            display: inline-block; /* Assure que le padding et la taille sont respectés */
         }
 
         .cta-button:hover {
             background-color: #218838;
+            transform: translateY(-2px); /* Petit effet au survol */
         }
 
         .services {
-            background-color: #f8f9fa;
+            background-color: var(--light-grey);
             padding: 40px 20px;
             text-align: center;
-            border-bottom: 1px solid #dee2e6;
+            border-bottom: 1px solid var(--border-color);
         }
 
         .services h2 {
-            color: #007bff;
-            margin-bottom: 20px;
+            color: var(--primary-blue);
+            margin-bottom: 30px; /* Plus d'espace */
+            font-size: 2em;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr; /* Une colonne par défaut */
+            gap: 25px; /* Espacement entre les éléments */
+            padding: 0 10px; /* Padding pour les très petits écrans */
         }
 
         .service-item {
-            background-color: #fff;
-            padding: 20px;
+            background-color: var(--white);
+            padding: 25px; /* Plus de padding */
             border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            margin: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: left; /* Alignement du texte à gauche */
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px); /* Effet de soulèvement au survol */
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
         }
 
         .service-item h3 {
-            color: #343a40;
+            color: var(--dark-grey);
             margin-top: 0;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        .service-item p {
+            font-size: 0.95em;
+            color: #555;
         }
 
         .footer {
-            background-color: #343a40;
+            background-color: var(--dark-grey);
             color: white;
             text-align: center;
-            padding: 20px 0;
-            margin-top: 40px;
-            font-size: 0.9em;
+            padding: 30px 0; /* Plus de padding */
+            margin-top: 50px; /* Plus d'espace */
+            font-size: 0.85em;
         }
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
+        .footer p {
+            margin: 5px 0;
         }
 
-        /* Responsive Design */
+        /* --- MEDIA QUERIES FOR RESPONSIVENESS --- */
+
+        /* Pour les tablettes et plus grands écrans (min-width de 768px) */
         @media (min-width: 768px) {
+            .logo {
+                font-size: 3em;
+            }
+            .tagline {
+                font-size: 1.2em;
+            }
             .hero {
                 padding: 60px 40px;
             }
+            .hero h2 {
+                font-size: 2.5em;
+            }
+            .hero p {
+                font-size: 1.2em;
+            }
             .services-grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                gap: 20px;
+                grid-template-columns: repeat(2, 1fr); /* Deux colonnes */
+            }
+            .services h2 {
+                font-size: 2.5em;
+            }
+        }
+
+        /* Pour les ordinateurs de bureau (min-width de 1024px) */
+        @media (min-width: 1024px) {
+            .logo {
+                font-size: 3.5em;
+            }
+            .tagline {
+                font-size: 1.3em;
+            }
+            .hero {
+                padding: 80px 40px;
+            }
+            .hero h2 {
+                font-size: 3em;
+            }
+            .hero p {
+                font-size: 1.3em;
+            }
+            .services-grid {
+                grid-template-columns: repeat(4, 1fr); /* Quatre colonnes */
             }
         }
     </style>
@@ -135,7 +218,7 @@
 
     <div class="hero">
         <div class="container">
-            <img src="placeholder-quebec.jpg" alt="Bienvenue à Québec" class="hero-image">
+            <img src="/images/quebec-city-welcome.jpg" alt="Bienvenue à Québec" class="hero-image">
             <h2>Bienvenue chez KIF KIF, votre nouveau chez-vous à Québec !</h2>
             <p>Vous venez d'arriver dans la magnifique ville de Québec ? Vous cherchez du soutien, des informations et un réseau pour bien démarrer votre nouvelle vie ? L'Association KIF KIF est là pour vous accompagner à chaque étape de votre intégration.</p>
             <a href="#services" class="cta-button">Découvrez nos services</a>
@@ -161,7 +244,7 @@
                 <div class="service-item">
                     <h3>Accompagnement dans les Démarches</h3>
                     <p>Soutien pour naviguer dans les systèmes de santé, d'éducation, de recherche d'emploi et autres services spécifiques à la région de la Capitale-Nationale.</p>
-                </div>
+                *</div>
             </div>
         </div>
     </div>
